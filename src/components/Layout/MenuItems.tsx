@@ -12,7 +12,8 @@ export default function MenuItems() {
     const routeItems = [
         { label: 'Deals', route: '/deals' },
         { label: 'Mappings', route: '/mappings' },
-        { label: 'Analytics', route: '/analytics' }
+        { label: 'Analytics', route: '/analytics' },
+        { label: 'FTP Browser', route: '/ftpbrowser' },
     ]
 
     return (

@@ -7,6 +7,8 @@ import { Box} from '@mui/material'
 import { SnackbarProvider } from 'notistack'
 import Layout from './components/Layout/Layout.tsx'
 import Analytics from './components/Analytics/Analytics.tsx'
+import { ReadOnlyVFSBrowser } from './components/VFSReadOnly.tsx'
+
 
 function App() {
 
@@ -20,10 +22,11 @@ function App() {
             <Box sx={{ display: 'flex', flexDirection: 'column', height: 'calc(100vh)', width: '100vw', marginTop: '94px' }}>
 
               <Routes>
-                <Route path="/" element={<Deals />} />
-                <Route path="/deals" element={<Deals />} />
+                <Route path="/" element={<Deals setGridRef={(grid: any) => null} />} />
+                <Route path="/deals" element={<Deals setGridRef={(grid: any) => null} />} />
                 <Route path="/mappings" element={<Mappings />} />
                 <Route path="/analytics" element={<Analytics />} />
+                <Route path="/ftpbrowser" element={<ReadOnlyVFSBrowser instanceId="sdf" />} />
               </Routes>
             </Box>
           </Box>

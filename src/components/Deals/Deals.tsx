@@ -1,5 +1,5 @@
 import 'ag-grid-enterprise';
-import { useContext } from 'react'
+import { useContext, useRef } from 'react'
 import { AppCtx } from '../../AppCtx'
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
@@ -51,12 +51,16 @@ const columnDefs: ColDef[] = [
      { headerName: "Timeline", field: "timeline" },
 ];
 
-export default function Deals() {
-    const appCtx = useContext(AppCtx)
+export type setGridRef = (grid: React.Ref<AgGridReact>) => void;
+
+export default function Deals({setGridRef}: {setGridRef: setGridRef}) {
+    const gridRef = useRef<AgGridReact>(null);
+    setGridRef(gridRef)
 
     return (
         <Box className="ag-theme-alpine" sx={{ flexGrow: 1, width: '100%' }} >
             <AgGridReact
+                ref={gridRef}
                 className={'full-width-grid'}
                 columnDefs={columnDefs}
                 rowData={deals}
